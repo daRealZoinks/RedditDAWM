@@ -2,28 +2,9 @@
 {
     public class Achievement
     {
-        public string Name
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string Description
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int Value
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Value { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace Core.Services
 {
     public class UserService
     {
-        public UserRepository UserRepository { get; set; }
+        private UserRepository UserRepository { get; set; }
 
         public UserService(UserRepository userRepository)
         {
@@ -29,21 +29,21 @@ namespace Core.Services
 
         public bool EditUsername(UserUpdateDto payload)
         {
-            if (payload == null || payload.Username == null)
-            {
-                return false;
-            }
-
             var result = UserRepository.GetById(payload.Id);
-
-            if (result == null)
-            {
-                return false;
-            }
 
             result.Username = payload.Username;
 
             return true;
+        }
+        
+        public void Add(User user)
+        {
+            UserRepository.Add(user);
+        }
+        
+        public void Delete(int userId)
+        {
+            UserRepository.Delete(userId);
         }
     }
 }

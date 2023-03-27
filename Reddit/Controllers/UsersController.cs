@@ -9,7 +9,7 @@ namespace Reddit.Controllers
     [Route("api/users")]
     public class UsersController : ControllerBase
     {
-        public UserService UserService { get; set; }
+        private UserService UserService { get; }
 
         public UsersController(UserService userService)
         {
@@ -24,15 +24,10 @@ namespace Reddit.Controllers
             return Ok(results);
         }
 
-        [HttpGet("/get/{userId}")]
+        [HttpGet("/get/{userId:int}")]
         public ActionResult<User> GetById(int userId)
         {
             var result = UserService.GetById(userId);
-
-            if (result == null)
-            {
-                return BadRequest("User not found");
-            }
 
             return Ok(result);
         }
@@ -48,6 +43,22 @@ namespace Reddit.Controllers
             }
 
             return result;
+        }
+
+        [HttpPost("add")]
+        public ActionResult<bool> Add([FromBody] User user)
+        {
+            UserService.Add(user);
+
+            return Ok();
+        }
+
+        [HttpDelete("delete/{userId:int}")]
+        public ActionResult<bool> Delete(int userId)
+        {
+            UserService.Delete(userId);
+
+            return Ok();
         }
     }
 }

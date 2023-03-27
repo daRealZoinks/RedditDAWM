@@ -2,36 +2,10 @@
 {
     public class Community
     {
-        public string Name
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public User Moderator
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string Description
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string Type
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int ModeratorId { get; set; }
+        public string Description { get; set; }
+        public string Type { get; set; }
     }
 }

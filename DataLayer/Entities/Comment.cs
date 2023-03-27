@@ -1,42 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace DataLayer.Entities
+﻿namespace DataLayer.Entities
 {
     public class Comment
     {
-        public Post Post
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public User User
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public DateOnly SendDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public string Content
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Id { get; set; }
+        public int PostId { get; set; }
+        public int UserId { get; set; }
+        public string Content { get; set; }
     }
 }
